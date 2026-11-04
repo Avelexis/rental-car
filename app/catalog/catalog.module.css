@@ -1,0 +1,12 @@
+.main {
+  min-height: calc(100vh - var(--header-height));
+  padding: 84px 0 104px;
+  background: var(--color-surface);
+}
+
+.error {
+  margin: 32px 0;
+  color: #d92d20;
+  text-align: center;
+  font-size: 14px;
+}

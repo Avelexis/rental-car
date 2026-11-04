@@ -1,0 +1,5 @@
+.loading {
+  position: relative;
+  min-height: calc(100vh - var(--header-height));
+  background: var(--color-surface);
+}

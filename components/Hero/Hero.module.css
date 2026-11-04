@@ -1,0 +1,76 @@
+.hero {
+  width: 100%;
+  height: calc(100vh - var(--header-height));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 0 60px;
+
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(16, 24, 40, 0.04) 0%,
+      rgba(16, 24, 40, 0.12) 48%,
+      rgba(16, 24, 40, 0.58) 100%
+    ),
+    url('/images/HeroImg.webp');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  color: #fff;
+  text-align: center;
+}
+
+.content {
+  width: 100%;
+  max-width: 783px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 204px;
+}
+
+.title {
+  max-width: 783px;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  color: #fff;
+  height: 72px;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.33333;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.button {
+  display: inline-flex;
+  width: 276px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.25;
+  padding: 12px 88px;
+  border-radius: 12px;
+  background-color: #00aad4;
+  color: #fff;
+  font-weight: 600;
+  transition: background-color 150ms ease;
+}
+
+.button:hover {
+  background-color: #0095ba;
+}
+
+.button:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}

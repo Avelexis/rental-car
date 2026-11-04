@@ -1,0 +1,166 @@
+.form {
+  display: grid;
+  padding: 32px;
+  border-radius: 16px;
+  background: #fff;
+}
+.form h2 {
+  color: #101828;
+  line-height: 1.2;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+.subtitle {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #8d929a;
+  margin-bottom: 24px;
+}
+.fields {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.field {
+  position: relative;
+  display: grid;
+  gap: 2px;
+}
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 12px 20px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: #f7f7f7;
+  color: #101828;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #8d929a;
+  font-family: 'Manrope', sans-serif;
+}
+.field textarea {
+  width: 576px;
+  max-width: 100%;
+  height: 88px;
+  padding: 12px 20px 56px;
+  border-radius: 12px;
+  background: #f7f7f7;
+  line-height: 18px;
+  overflow-y: auto;
+  resize: none;
+}
+.field input {
+  width: 576px;
+  max-width: 100%;
+  height: 48px;
+  padding: 12px 20px;
+  border-radius: 12px;
+}
+.field input:focus,
+.field textarea:focus {
+  border-color: #00aad4;
+  outline: 0;
+}
+.invalidField {
+  row-gap: 2px;
+}
+.errorLabel {
+  position: absolute;
+  z-index: 1;
+  top: -7px;
+  left: 12px;
+  display: inline-flex;
+  width: 54px;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  border-radius: 8px;
+  background: #ffdfdf;
+  color: #ec383b;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.33333;
+  text-align: center;
+}
+.invalidField input,
+.invalidField textarea {
+  border-color: #ff7377;
+  background: #ffe3e3;
+}
+.errorIcon {
+  position: absolute;
+  top: 20px;
+  right: 14px;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: #ff4d4f;
+  stroke-width: 2.5;
+}
+.invalidField input ~ .errorIconWrap .errorIcon {
+  top: 24px;
+  transform: translateY(-50%);
+}
+.invalidField textarea ~ .errorIconWrap .errorIcon {
+  top: 44px;
+  transform: translateY(-50%);
+}
+.fieldError {
+  color: #ff4d4f;
+  font-size: 10px;
+  line-height: 14px;
+}
+.form button {
+  min-height: 44px;
+  border: 0;
+  border-radius: 8px;
+  background: #00aad4;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  transition:
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 120ms ease;
+}
+.form button:hover:not(:disabled) {
+  background: #0095ba;
+}
+.form button:focus-visible {
+  outline: 3px solid rgb(0 170 212 / 35%);
+  outline-offset: 3px;
+}
+.form button:active:not(:disabled) {
+  transform: scale(0.99);
+}
+.form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.requestError {
+  margin: 0;
+  color: #e5484d;
+  font-size: 12px;
+}
+.success {
+  margin: 0;
+  color: #16803c;
+  font-size: 14px;
+}
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

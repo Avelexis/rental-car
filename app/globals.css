@@ -1,0 +1,90 @@
+/* app/globals.css */
+
+@import 'modern-normalize';
+
+:root {
+  color-scheme: light;
+
+  --color-text: #101828;
+  --color-muted: #667085;
+  --color-background: #ffffff;
+  --color-surface: #f7f7f7;
+  --color-border: #d0d5dd;
+  --color-primary: #3470ff;
+  --color-primary-hover: #0b44cd;
+
+  --header-height: 68px;
+  --font-body: var(--font-manrope), Arial, Helvetica, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  padding-left: 120px;
+  padding-right: 120px;
+  margin-inline: auto;
+}
