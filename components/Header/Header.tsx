@@ -10,7 +10,12 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <Link className={styles.logo} href="/" aria-label="Rental Cars home">
+        <Link
+          className={styles.logo}
+          href="/"
+          prefetch={false}
+          aria-label="Rental Cars home"
+        >
           <span className={styles.logoGraphic} aria-hidden="true">
             <svg width="102" height="16">
               <use href="/svg/RentalCarsIcon.svg#rental-cars-logo" />
@@ -22,6 +27,7 @@ export default function Header() {
           <Link
             className={pathname === '/' ? styles.active : undefined}
             href="/"
+            prefetch={false}
             aria-current={pathname === '/' ? 'page' : undefined}
           >
             Home
@@ -31,6 +37,7 @@ export default function Header() {
               pathname === '/catalog' ? styles.active : undefined
             }
             href="/catalog"
+            prefetch={false}
             aria-current={pathname === '/catalog' ? 'page' : undefined}
           >
             Catalog

@@ -42,6 +42,7 @@ export default function CarCard({ car }: CarCardProps) {
       <Link
         className={styles.button}
         href={`/catalog/${car.id}`}
+        prefetch={false}
         target="_blank"
         rel="noopener noreferrer"
       >

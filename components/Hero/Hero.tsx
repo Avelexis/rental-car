@@ -10,7 +10,7 @@ export default function Hero() {
           Reliable and budget-friendly rentals for any journey
         </p>
 
-        <Link className={styles.button} href="/catalog">
+        <Link className={styles.button} href="/catalog" prefetch={false}>
           View Catalog
         </Link>
       </div>

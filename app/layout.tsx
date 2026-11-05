@@ -1,9 +1,29 @@
 import { Suspense } from 'react';
+import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 
 import Header from '../components/Header/Header';
 import Providers from './provider';
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://rental-car-zeta-livid.vercel.app'),
+  title: {
+    default: 'Rental Car | Find your perfect rental car',
+    template: '%s | Rental Car',
+  },
+  description:
+    'Browse available rental cars, compare prices, and find the right car for your next journey.',
+  applicationName: 'Rental Car',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'Rental Car',
+    title: 'Rental Car | Find your perfect rental car',
+    description:
+      'Browse available rental cars, compare prices, and find the right car for your next journey.',
+  },
+};
 
 const manrope = localFont({
   src: [

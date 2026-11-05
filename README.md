@@ -71,10 +71,11 @@ The application communicates with the [GoIT Car Rental API](https://car-rental-a
 
 ## Deployment
 
-Deploy the project to Vercel or Netlify. Add the public deployment URL here after publishing:
+The project is deployed on Vercel:
 
-**Live demo:** _Add deployment URL_
+**Live demo:** [rental-car-zeta-livid.vercel.app](https://rental-car-zeta-livid.vercel.app/)
 
 ## Author
 
 **Avelexis**
+
