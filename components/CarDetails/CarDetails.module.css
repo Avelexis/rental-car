@@ -16,7 +16,7 @@
   grid-template-rows: 512px 1fr;
   gap: 32px;
   width: 640px;
-  height: 968px;
+  min-height: 968px;
 }
 .photo {
   position: relative;
@@ -31,7 +31,7 @@
   object-fit: cover;
 }
 .info {
-  height: 968px;
+  min-height: 968px;
   padding: 24px;
   border-radius: 16px;
   background: #fff;

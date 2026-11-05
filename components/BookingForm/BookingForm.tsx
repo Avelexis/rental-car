@@ -37,6 +37,7 @@ export default function BookingForm({ carId }: { carId: string }) {
   const [success, setSuccess] = useState('');
   const [requestError, setRequestError] = useState('');
   const [pending, setPending] = useState(false);
+  const [commentHasOverflow, setCommentHasOverflow] = useState(false);
 
   function validateField(
     event: FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -76,6 +77,7 @@ export default function BookingForm({ carId }: { carId: string }) {
       setSuccess(result.message || 'Booking request sent successfully.');
       event.currentTarget.reset();
       setErrors({});
+      setCommentHasOverflow(false);
     } catch {
       setRequestError('Could not send your request. Please try again.');
     } finally {
@@ -145,12 +147,18 @@ export default function BookingForm({ carId }: { carId: string }) {
           <textarea
             id="booking-comment"
             name="comment"
+            className={commentHasOverflow ? styles.textareaOverflow : undefined}
             placeholder="Comment"
             onBlur={(event) => validateField(event, 'comment')}
-            onChange={() =>
-              errors.comment &&
-              setErrors((current) => ({ ...current, comment: undefined }))
-            }
+            onChange={(event) => {
+              const textarea = event.currentTarget;
+              setCommentHasOverflow(
+                textarea.scrollHeight > textarea.clientHeight,
+              );
+              if (errors.comment) {
+                setErrors((current) => ({ ...current, comment: undefined }));
+              }
+            }}
             aria-invalid={Boolean(errors.comment)}
             aria-describedby={
               errors.comment ? 'booking-comment-error' : undefined

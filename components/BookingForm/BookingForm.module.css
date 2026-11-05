@@ -50,8 +50,11 @@
   border-radius: 12px;
   background: #f7f7f7;
   line-height: 18px;
-  overflow-y: auto;
+  overflow-y: hidden;
   resize: none;
+}
+.field textarea.textareaOverflow {
+  overflow-y: auto;
 }
 .field input {
   width: 576px;
