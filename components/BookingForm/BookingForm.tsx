@@ -32,7 +32,13 @@ function ErrorIcon() {
   );
 }
 
-export default function BookingForm({ carId }: { carId: string }) {
+export default function BookingForm({
+  carId,
+  className,
+}: {
+  carId: string;
+  className?: string;
+}) {
   const [errors, setErrors] = useState<FieldErrors>({});
   const [success, setSuccess] = useState('');
   const [requestError, setRequestError] = useState('');
@@ -86,7 +92,11 @@ export default function BookingForm({ carId }: { carId: string }) {
   }
 
   return (
-    <form className={styles.form} onSubmit={submit} noValidate>
+    <form
+      className={className ? `${styles.form} ${className}` : styles.form}
+      onSubmit={submit}
+      noValidate
+    >
       <h2>Book your car now</h2>
       <p className={styles.subtitle}>
         Stay connected! We are always ready to help you.

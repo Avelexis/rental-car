@@ -24,7 +24,6 @@
 }
 
 html {
-  min-width: 320px;
   scroll-behavior: smooth;
 }
 
@@ -84,7 +83,18 @@ a {
 .container {
   width: 100%;
   max-width: 1440px;
-  padding-left: 120px;
-  padding-right: 120px;
+  padding-inline: 16px;
   margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-inline: 32px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    padding-inline: 120px;
+  }
 }

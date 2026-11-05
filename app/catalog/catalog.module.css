@@ -1,6 +1,6 @@
 .main {
   min-height: calc(100vh - var(--header-height));
-  padding: 84px 0 104px;
+  padding: 32px 0 48px;
   background: var(--color-surface);
 }
 
@@ -9,4 +9,16 @@
   color: #d92d20;
   text-align: center;
   font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  .main {
+    padding: 48px 0 64px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .main {
+    padding: 84px 0 104px;
+  }
 }

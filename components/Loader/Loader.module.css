@@ -11,12 +11,13 @@
 .card {
   display: flex;
   width: min(100%, 543px);
-  height: 288px;
+  min-height: 240px;
+  height: auto;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  padding: 48px 96px;
+  padding: 32px 24px;
   border-radius: 16px;
   background: #fff;
   text-align: center;
@@ -68,8 +69,18 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .card {
-    padding-inline: 24px;
+    min-height: 288px;
+    height: 288px;
+    padding: 48px 96px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .card {
+    min-height: 288px;
+    height: 288px;
+    padding: 48px 96px;
   }
 }

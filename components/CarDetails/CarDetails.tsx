@@ -49,7 +49,7 @@ export default function CarDetails({ car }: { car: Car }) {
               priority
             />
           </div>
-          <BookingForm carId={car.id} />
+          <BookingForm carId={car.id} className={styles.bookingForm} />
         </div>
         <div className={styles.info}>
           <div className={styles.summary}>

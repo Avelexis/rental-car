@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rental Car
 
-## Getting Started
+A car rental web application built with Next.js and TypeScript. Browse available cars, filter the catalog, load more results, view car details, and submit a booking request.
 
-First, run the development server:
+## Features
+
+- Browse cars retrieved from the GoIT Car Rental API.
+- Filter the catalog by brand, hourly price, and mileage range.
+- Load additional results with paginated requests powered by TanStack Query's `useInfiniteQuery`.
+- Open a car's details page in a new browser tab.
+- View car photos, specifications, rental conditions, and features.
+- Submit a booking request with name, email, and comment fields.
+- See loading, validation, request error, and booking success states.
+- Responsive layouts for mobile, tablet, and desktop screens.
+
+## Tech stack
+
+- Next.js 16 with the App Router
+- React 19
+- TypeScript
+- TanStack Query
+- CSS Modules
+- `modern-normalize`
+- Local Manrope font files
+
+## Routes
+
+| Route | Description |
+| --- | --- |
+| `/` | Home page with a hero section and a link to the catalog. |
+| `/catalog` | Car catalog with backend filters and a Load More button. |
+| `/catalog/[carId]` | Car details and booking form for the selected car. |
+
+## Getting started
+
+### Requirements
+
+- Node.js
+- npm
+
+### Install and run locally
 
 ```bash
+git clone https://github.com/Avelexis/rental-car.git
+cd rental-car
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The application currently uses the API base URL configured in `lib/api.ts`; no environment variables are required for local development.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Available scripts
 
-## Learn More
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the Next.js development server. |
+| `npm run lint` | Run ESLint. |
+| `npm run build` | Create a production build. |
+| `npm run start` | Start the production server after building. |
 
-To learn more about Next.js, take a look at the following resources:
+## API
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The application communicates with the [GoIT Car Rental API](https://car-rental-api.goit.study/api-docs/).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `GET /cars` — retrieve a page of cars and apply catalog filters.
+- `GET /cars/filters` — retrieve available filter options.
+- `GET /cars/{id}` — retrieve car details.
+- `POST /cars/{carId}/booking-requests` — submit a booking request.
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Deploy the project to Vercel or Netlify. Add the public deployment URL here after publishing:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Live demo:** _Add deployment URL_
+
+## Author
+
+**Avelexis**

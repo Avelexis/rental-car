@@ -4,20 +4,20 @@
 
 .cardsArea {
   position: relative;
-  margin-top: 24px;
+  margin-top: 16px;
 }
 
 .cardsAreaReserved {
   display: grid;
-  min-height: calc(3 * 464px + 2 * 32px);
+  min-height: calc(12 * 464px + 11 * 24px);
   place-items: center;
   background: var(--color-surface);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 32px;
+  grid-template-columns: 1fr;
+  gap: 24px;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -31,7 +31,7 @@
 .loadMoreWrapper {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 24px;
 }
 
 .loadMoreButton {
@@ -61,19 +61,9 @@
   opacity: 0.65;
 }
 
-@media (max-width: 1100px) {
+@media (min-width: 768px) {
   .cardsAreaReserved {
-    min-height: calc(4 * 464px + 3 * 32px);
-  }
-
-  .grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
-  .cardsAreaReserved {
-    min-height: calc(6 * 464px + 5 * 32px);
+    min-height: calc(6 * 464px + 5 * 24px);
   }
 
   .grid {
@@ -81,12 +71,31 @@
   }
 }
 
-@media (max-width: 375px) {
+@media (min-width: 1100px) {
   .cardsAreaReserved {
-    min-height: calc(12 * 464px + 11 * 32px);
+    min-height: calc(4 * 464px + 3 * 32px);
   }
 
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .cardsAreaReserved {
+    min-height: calc(3 * 464px + 2 * 32px);
+  }
+
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .loadMoreWrapper {
+    margin-top: 40px;
+  }
+
+  .cardsArea {
+    margin-top: 24px;
   }
 }

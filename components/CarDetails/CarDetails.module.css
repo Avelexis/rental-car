@@ -1,28 +1,28 @@
 .main {
   min-height: calc(100vh - var(--header-height));
-  padding: 84px 0px 80px;
+  padding: 24px 0 40px;
   background: var(--color-surface);
 }
 .layout {
   display: grid;
-  grid-template-columns: minmax(0, 640px) minmax(0, 1fr);
-  gap: 32px;
-  width: min(100%, 1200px);
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    'photo'
+    'details'
+    'booking';
+  gap: 24px;
+  width: min(calc(100% - 32px), 1200px);
   margin: auto;
 }
 .leftColumn {
-  display: grid;
-  align-content: start;
-  grid-template-rows: 512px 1fr;
-  gap: 32px;
-  width: 640px;
-  min-height: 968px;
+  display: contents;
 }
 .photo {
   position: relative;
-  width: 640px;
-  max-width: 100%;
-  height: 512px;
+  grid-area: photo;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5 / 4;
   overflow: hidden;
   border-radius: 12px;
   background: #eee;
@@ -31,33 +31,37 @@
   object-fit: cover;
 }
 .info {
-  min-height: 968px;
-  padding: 24px;
+  grid-area: details;
+  min-height: 0;
+  padding: 20px;
   border-radius: 16px;
   background: #fff;
 }
 .summary {
-  width: 480px;
-  max-width: 100%;
+  width: 100%;
 }
 .detailsContent {
-  width: 480px;
-  max-width: 100%;
-  margin-top: 68px;
+  width: 100%;
+  margin-top: 32px;
 }
 .form {
   padding: 32px;
   border-radius: 16px;
   background: #fff;
 }
+.bookingForm {
+  grid-area: booking;
+  width: 100%;
+}
 .heading {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 12px;
 }
 .heading h1 {
   font-weight: 600;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1.33333;
   text-align: center;
   color: #101828;
@@ -90,14 +94,14 @@
 .description {
   font-family: 'Manrope', sans-serif;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.25;
   color: #101828;
 }
 .info h2 {
   font-family: 'Manrope', sans-serif;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.2;
   color: #101828;
 }
@@ -111,9 +115,9 @@
 .list li {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.25;
   color: #101828;
 }
@@ -136,31 +140,116 @@
   border-top: 1px solid #e4e7ec;
   margin: 24px 0;
 }
-@media (max-width: 760px) {
+@media (min-width: 375px) {
   .layout {
-    grid-template-columns: 1fr;
+    width: min(calc(100% - 40px), 1200px);
   }
+}
+
+@media (min-width: 768px) {
+  .layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas: none;
+    gap: 24px;
+    width: min(calc(100% - 64px), 1200px);
+  }
+
   .leftColumn {
+    display: grid;
+    align-content: start;
+    grid-template-rows: auto 1fr;
+    gap: 24px;
     width: 100%;
-    height: auto;
-    grid-template-rows: auto auto;
+    min-height: 0;
   }
+
   .photo {
-    width: 100%;
+    grid-area: auto;
     height: auto;
     aspect-ratio: 5 / 4;
   }
-  .main {
-    padding: 24px 16px;
-  }
+
   .info {
-    grid-row: 1;
+    grid-area: auto;
+    padding: 20px;
   }
+
   .heading {
     flex-wrap: wrap;
   }
+
   .summary {
     height: auto;
-    min-height: 180px;
+  }
+
+  .detailsContent {
+    margin-top: 40px;
+  }
+
+  .bookingForm {
+    grid-area: auto;
+  }
+}
+
+@media (min-width: 1440px) {
+  .main {
+    padding: 84px 0 80px;
+  }
+
+  .layout {
+    grid-template-columns: minmax(0, 640px) minmax(0, 1fr);
+    grid-template-areas: none;
+    gap: 32px;
+    width: min(100%, 1200px);
+  }
+
+  .leftColumn {
+    grid-template-rows: 512px 1fr;
+    gap: 32px;
+    width: 640px;
+    min-height: 968px;
+  }
+
+  .photo {
+    width: 640px;
+    max-width: 100%;
+    height: 512px;
+    aspect-ratio: auto;
+  }
+
+  .info {
+    min-height: 968px;
+    padding: 24px;
+  }
+
+  .summary,
+  .detailsContent {
+    width: 480px;
+    max-width: 100%;
+  }
+
+  .detailsContent {
+    margin-top: 68px;
+  }
+
+  .heading h1 {
+    font-size: 24px;
+  }
+
+  .heading {
+    flex-wrap: nowrap;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .info h2 {
+    font-size: 20px;
+  }
+
+  .list li {
+    gap: 16px;
+    font-size: 16px;
   }
 }

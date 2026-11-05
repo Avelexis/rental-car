@@ -18,7 +18,7 @@ export default function CarCard({ car }: CarCardProps) {
           src={car.img}
           alt={carName}
           fill
-          sizes="(max-width: 375px) calc(100vw - 272px), (max-width: 768px) calc(50vw - 168px), (max-width: 1100px) calc(33.333vw - 133.333px), (max-width: 1440px) calc(25vw - 116px), 244px"
+          sizes="(min-width: 1440px) 244px, (min-width: 1100px) calc(33.333vw - 74.667px), (min-width: 768px) calc(50vw - 76px), calc(100vw - 64px)"
         />
       </div>
 
