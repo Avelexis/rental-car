@@ -183,6 +183,8 @@ export default function CatalogFilters({
         <div className={styles.mileageInputs}>
           <input
             className={styles.mileageInput}
+            id="min-mileage"
+            name="minMileage"
             type="number"
             min="0"
             step="1"
@@ -194,6 +196,8 @@ export default function CatalogFilters({
           />
           <input
             className={styles.mileageInput}
+            id="max-mileage"
+            name="maxMileage"
             type="number"
             min="0"
             step="1"
