@@ -6,6 +6,40 @@ import styles from './BookingForm.module.css';
 
 type FieldName = 'name' | 'email' | 'comment';
 type FieldErrors = Partial<Record<FieldName, string>>;
+type ToastType = 'success' | 'error';
+
+function escapeToastText(value: string) {
+  return value.replace(/[&<>"']/g, (character) => {
+    const entities: Record<string, string> = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;',
+    };
+
+    return entities[character];
+  });
+}
+
+async function showToast(type: ToastType, message: string) {
+  try {
+    const { default: iziToast } = await import('izitoast');
+    iziToast[type]({
+      title: type === 'success' ? 'Booking request sent' : 'Booking request failed',
+      message,
+      position: 'topRight',
+      timeout: 6000,
+      closeOnEscape: true,
+      displayMode: 2,
+      maxWidth: 420,
+    });
+
+    return true;
+  } catch {
+    return false;
+  }
+}
 
 function validate(name: FieldName, value: string) {
   if (!value.trim()) {
@@ -61,9 +95,10 @@ export default function BookingForm({
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const formElement = event.currentTarget;
     setSuccess('');
     setRequestError('');
-    const form = new FormData(event.currentTarget);
+    const form = new FormData(formElement);
     const values = {
       name: String(form.get('name') ?? ''),
       email: String(form.get('email') ?? ''),
@@ -79,13 +114,34 @@ export default function BookingForm({
 
     setPending(true);
     try {
-      const result = await createBookingRequest(carId, values);
-      setSuccess(result.message || 'Booking request sent successfully.');
-      event.currentTarget.reset();
+      try {
+        await createBookingRequest(carId, values);
+      } catch {
+        const name = escapeToastText(values.name);
+        const email = escapeToastText(values.email);
+        const message = `We couldn't send a request for ${name} (${email}). Please try again.`;
+        const toastShown = await showToast('error', message);
+
+        if (!toastShown) {
+          setRequestError('Could not send your request. Please try again.');
+        }
+
+        return;
+      }
+
+      formElement.reset();
       setErrors({});
       setCommentHasOverflow(false);
-    } catch {
-      setRequestError('Could not send your request. Please try again.');
+      const name = escapeToastText(values.name);
+      const email = escapeToastText(values.email);
+      const message = `Thank you, ${name}! We'll contact you at ${email}.`;
+      const toastShown = await showToast('success', message);
+
+      if (!toastShown) {
+        setSuccess(
+          `Booking request sent successfully for ${values.name}. We will contact you at ${values.email}.`,
+        );
+      }
     } finally {
       setPending(false);
     }
@@ -195,7 +251,9 @@ export default function BookingForm({
           {success}
         </p>
       )}
-      <button disabled={pending}>{pending ? 'Sending...' : 'Send'}</button>
+      <button type="submit" disabled={pending}>
+        {pending ? 'Sending...' : 'Send'}
+      </button>
     </form>
   );
 }

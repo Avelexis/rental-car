@@ -180,6 +180,15 @@
   }
 }
 
+@media (min-width: 768px) and (max-width: 1439px) {
+  .form button {
+    width: min(100%, 320px);
+    height: 48px;
+    min-height: 48px;
+    justify-self: center;
+  }
+}
+
 @media (min-width: 1440px) {
   .form {
     padding: 32px;

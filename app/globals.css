@@ -1,6 +1,7 @@
 /* app/globals.css */
 
 @import 'modern-normalize';
+@import 'izitoast/dist/css/iziToast.min.css';
 
 :root {
   color-scheme: light;
