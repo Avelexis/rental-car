@@ -60,12 +60,14 @@
 }
 
 .details {
+  display: -webkit-box;
+  height: 52px;
   min-height: 52px;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
   font-weight: 400;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  gap: 2px 0;
   padding: 8px;
   margin: 8px 0 0;
   border-radius: 8px;
@@ -77,11 +79,10 @@
 }
 
 .details li {
-  display: inline-block;
+  display: inline;
   max-width: 100%;
   white-space: normal;
   overflow-wrap: anywhere;
-  vertical-align: top;
 }
 
 .details li:not(:last-child)::after {
@@ -124,13 +125,12 @@
 
 @media (min-width: 1440px) {
   .details {
-    display: block;
     gap: 0;
   }
 
   .details li {
-    max-width: none;
-    white-space: nowrap;
-    overflow-wrap: normal;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 }
